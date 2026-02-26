@@ -1,0 +1,23 @@
+/* 引入整个 Tailwind 框架（v4 的全新极简写法） */
+@import "tailwindcss";
+/* 排版插件 */
+@plugin "@tailwindcss/typography";
+/*极简风全局基础设置 */
+/* 告诉 Tailwind：当 HTML 标签带有 'dark' 类名时，启用暗黑模式 */
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  body {
+    /* 日间模式 */
+    background-color: #FAFAFA; /* 极简灰白背景 */
+    color: #333333; /* 柔和的正文深灰色 */
+    -webkit-font-smoothing: antialiased; /* 字体抗锯齿，提升质感 */
+    /* 过渡动画：切换主题时背景色柔和渐变 */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  html.dark body {
+    /* 暗黑模式 */
+    background-color: #111827; /* 极简深灰背景 */
+    color: #E5E7EB; /* 柔和的正文浅灰色 */
+  }
+}
