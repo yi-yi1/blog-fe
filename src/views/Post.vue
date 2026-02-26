@@ -209,7 +209,7 @@ const deletePost = async () => {
     return;
   }
   try {
-    await axios.delete(`http://localhost:3000/posts/${post.value.id}`);
+    await axios.delete(`https://blog-be-k6a0.onrender.com/posts/${post.value.id}`);
     router.push('/'); // 删除成功后跳转到首页
   } catch (error) {
     console.error('删除文章失败', error);
@@ -221,7 +221,7 @@ const deletePost = async () => {
 onMounted(async () => {
   // 根据路由参数中的id获取文章详情
     try {
-      const reponse = await axios.get(`http://localhost:3000/posts/${route.params.id}`);
+      const reponse = await axios.get(`https://blog-be-k6a0.onrender.com/posts/${route.params.id}`);
       post.value = reponse.data;
     }catch (error){
       console.error('获取文章详情失败',error);

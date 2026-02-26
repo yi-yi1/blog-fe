@@ -55,7 +55,7 @@ const publishPost = async() =>{
     }
     isPublishing.value = true;
     try {
-        const response = await axios.post('http://localhost:3000/posts', form);
+        const response = await axios.post('https://blog-be-k6a0.onrender.com/posts', form);
         // 发布之后直接跳转到新发布的文章详情页
         router.push(`/post/${response.data.id}`);
     } catch (error){

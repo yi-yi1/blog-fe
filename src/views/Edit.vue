@@ -50,7 +50,7 @@ const isPublishing = ref(false);
 // 挂载时，如果路由参数中有id，说明是编辑文章，获取文章详情并填充到表单中
 onMounted(async () => {
     try {
-        const response = await axios.get(`http://localhost:3000/posts/${route.params.id}`);
+        const response = await axios.get(`https://blog-be-k6a0.onrender.com/posts/${route.params.id}`);
         form.title = response.data.title || '';
         form.excerpt = response.data.excerpt || '';
         form.content = response.data.content || '';
@@ -67,7 +67,7 @@ const updatePost = async () => {
     }
     isPublishing.value = true;
     try {
-        await axios.patch(`http://localhost:3000/posts/${route.params.id}`, form);
+        await axios.patch(`https://blog-be-k6a0.onrender.com/posts/${route.params.id}`, form);
         // 更新之后直接跳转到文章详情页
         router.push(`/post/${route.params.id}`);
     } catch (error){
