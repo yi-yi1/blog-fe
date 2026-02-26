@@ -42,7 +42,7 @@ const router = createRouter({
 })
 
 // 全局前置路由：在每次路由切换之前都会执行这个函数 
-router.beforeEach((to,from,next) => {
+router.beforeEach((to,_from,next) => {
     // 如果目标路由需要认证，但用户没有登录，则重定向到登录页
     if(to.meta.requiresAuth && !isAdmin.value){
         next('/login');
