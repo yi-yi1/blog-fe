@@ -88,7 +88,7 @@ const columns = computed(() => [
 // 获取任务列表
 const fetchTasks = async () => {
   try {
-    const response = await axios.get('http://localhost:3000/tasks');
+    const response = await axios.get('https://blog-be-k6a0.onrender.com/tasks');
     tasks.value = response.data;
   } catch (error) {
     console.error('获取任务失败:', error);
@@ -101,7 +101,7 @@ onMounted(fetchTasks);
 const addTask = async () => {
   if (!newTaskTitle.value.trim() || !isAdmin.value) return;
   try {
-    const response = await axios.post('http://localhost:3000/tasks', { 
+    const response = await axios.post('https://blog-be-k6a0.onrender.com/tasks', { 
       title: newTaskTitle.value
   });
     tasks.value.unshift(response.data);// 将新任务添加到列表顶部
@@ -113,7 +113,7 @@ const addTask = async () => {
 const deleteTask = async (id: number) => {
   if (!isAdmin.value) return;
   try {
-    await axios.delete(`http://localhost:3000/tasks/${id}`);
+    await axios.delete(`https://blog-be-k6a0.onrender.com/tasks/${id}`);
     tasks.value = tasks.value.filter(t => t.id !== id);
   } catch (error) {
     console.error('删除任务失败:', error);
@@ -137,7 +137,7 @@ const onDrop = async (event: DragEvent, newStatus: string) => {
     const oldStatus = task.status;
     task.status = newStatus; // 先更新状态以优化UI响应
     try {
-      await axios.patch(`http://localhost:3000/tasks/${taskId}`, { status: newStatus });
+      await axios.patch(`https://blog-be-k6a0.onrender.com/tasks/${taskId}`, { status: newStatus });
     }catch (error) {
       console.error('更新任务状态失败:', error);
       task.status = oldStatus; // 恢复原状态
