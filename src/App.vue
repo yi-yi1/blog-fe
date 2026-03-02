@@ -7,18 +7,13 @@
         </router-link>
         
         <div class="flex items-center space-x-4 md:space-x-6">
-          <nav class="space-x-4 md:space-x-6 text-sm md:text-base text-gray-500 dark:text-gray-400 flex items-center">
+          <nav class="space-x-4 md:space-x-6 text-sm md:text-base text-gray-500 dark:text-gray-400 flex       items-center">
             <router-link to="/" class="hover:text-gray-900 dark:hover:text-white transition-colors">首页</router-link>
-            <a href="#" class="hover:text-gray-900 dark:hover:text-white transition-colors">关于</a>
-
-            <router-link v-if="isAdmin" to="/publish" class="text-blue-600 dark:text-blue-400 font-medium">
-              ✎ 写文章
-            </router-link>
-
-            <button v-if="isAdmin" @click="logout" class="text-red-500 hover:text-red-700 ml-4">
-              退出站长
-            </button>
-
+  
+            <router-link to="/kanban" class="hover:text-gray-900 dark:hover:text-white transition-colors font-medium text-blue-500">看板</router-link>
+  
+            <router-link v-if="isAdmin" to="/publish" class="text-blue-600 dark:text-blue-400 font-medium">✎ 写文章</router-link>
+            <button v-if="isAdmin" @click="logout" class="text-red-500 hover:text-red-700 ml-4">退出</button>
           </nav>
           
           <div class="w-px h-4 bg-gray-300 dark:bg-gray-600"></div>

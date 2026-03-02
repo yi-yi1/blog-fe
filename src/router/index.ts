@@ -32,6 +32,11 @@ const routes = [
         name: 'Edit',
         component: () => import('../views/Edit.vue'),
         meta: { requiresAuth: true } // 需要登录才能访问
+    },
+    {
+        path: '/kanban',
+        name: 'Kanban',
+        component: () => import('../views/Kanban.vue')
     }
 ]
 
