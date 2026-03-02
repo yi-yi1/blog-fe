@@ -30,7 +30,7 @@ const posts = ref<any[]>([]);
 
 onMounted(async () => {
   try {
-    const response = await axios.get('https://blog-be-k6a0.onrender.com/posts');
+    const response = await axios.get('/posts');
     posts.value = response.data;
   } catch (error){
     console.error('获取文章列表失败',error);
