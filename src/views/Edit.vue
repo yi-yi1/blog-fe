@@ -69,7 +69,8 @@ const updatePost = async () => {
     try {
         await axios.patch(`/posts/${route.params.id}`, form);
         // 更新之后直接跳转到文章详情页
-        router.push(`/post/${route.params.id}`);
+        // router.push(`/post/${route.params.id}`);
+        router.replace(`/post/${route.params.id}`); // 使用replace避免在历史记录中留下编辑页
     } catch (error){
         console.error('更新文章失败',error);
         alert('更新失败，请稍后再试！');
