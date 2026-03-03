@@ -15,28 +15,41 @@
         </router-link>
         
         <div class="flex items-center space-x-4 md:space-x-6">
-          <nav class="space-x-4 md:space-x-6 text-sm md:text-base text-gray-500 dark:text-gray-400 flex items-center">
-            
-            <router-link to="/" class="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5">
-              <i-heroicons-home-solid class="text-lg" />
-              <span class="hidden md:inline">首页</span>
-            </router-link>
-  
-            <router-link to="/kanban" class="hover:text-gray-900 dark:hover:text-white transition-colors font-medium text-blue-500 flex items-center gap-1.5">
-              <i-fluent-board-24-filled class="text-lg" />
-              <span class="hidden md:inline">看板</span>
-            </router-link>
-  
-            <router-link v-if="isAdmin" to="/publish" class="text-blue-600 dark:text-blue-400 font-medium flex items-center gap-1.5">
-              <i-heroicons-pencil-square-solid class="text-lg" />
-              <span class="hidden md:inline">写文章</span>
-            </router-link>
-            
-            <button v-if="isAdmin" @click="logout" class="text-red-500 hover:text-red-700 ml-4 flex items-center gap-1.5">
-              <i-heroicons-arrow-right-on-rectangle-solid class="text-lg" />
-              <span class="hidden md:inline">退出</span>
-            </button>
-          </nav>
+          <nav class="flex items-center gap-4 md:gap-6 text-sm md:text-base text-gray-500 dark:text-gray-400 font-medium">
+          
+          <router-link 
+            to="/" 
+            exact-active-class="text-blue-600 dark:text-blue-400"
+            class="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5"
+          >
+            <i-heroicons-home-solid class="text-lg" />
+            <span class="hidden md:inline">首页</span>
+          </router-link>
+          
+          <router-link 
+            to="/kanban" 
+            active-class="text-blue-600 dark:text-blue-400"
+            class="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5"
+          >
+            <i-fluent-board-24-filled class="text-lg" />
+            <span class="hidden md:inline">看板</span>
+          </router-link>
+
+          <router-link 
+            v-if="isAdmin" 
+            to="/publish" 
+            active-class="text-blue-600 dark:text-blue-400"
+            class="hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5"
+          >
+            <i-heroicons-pencil-square-solid class="text-lg" />
+            <span class="hidden md:inline">写文章</span>
+          </router-link>
+
+          <button v-if="isAdmin" @click="logout" class="text-red-500 hover:text-red-600 transition-colors flex items-center gap-1.5 ml-2">
+            <i-heroicons-arrow-right-on-rectangle-solid class="text-lg" />
+            <span class="hidden md:inline">退出</span>
+          </button>
+        </nav>
           
           <div class="w-px h-4 bg-gray-300 dark:bg-gray-600"></div>
 
